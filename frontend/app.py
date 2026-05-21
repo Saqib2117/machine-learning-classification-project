@@ -7,23 +7,23 @@ st.set_page_config(page_title="Income Level Prediction", page_icon="💰")
 st.title("Machine Learning Model for Income Level Prediction")
 st.write("Enter the following details to predict the income level:")
 
-education_options = {
-    "11th Grade": "11th",
-    "High School Graduate": "HS-grad",
-    "Associate Academic Degree": "Assoc-acdm",
-    "Some College (No Degree)": "Some-college",
-    "10th Grade": "10th",
-    "Professional School": "Prof-school",
-    "7th-8th Grade": "7th-8th",
-    "Bachelor's Degree": "Bachelors",
-    "Master's Degree": "Masters",
-    "Doctorate / PhD": "Doctorate",
-    "5th-6th Grade": "5th-6th",
-    "Associate Vocational Degree": "Assoc-voc",
-    "9th Grade": "9th",
-    "12th Grade": "12th",
-    "1st-4th Grade": "1st-4th",
-    "Preschool": "Preschool"
+education_map = {
+    "11th Grade": 7,
+    "High School Graduate": 9,
+    "Associate Academic Degree": 12,
+    "Some College (No Degree)": 10,
+    "10th Grade": 6,
+    "Professional School": 15,
+    "7th-8th Grade": 4,
+    "Bachelor's Degree": 13,
+    "Master's Degree": 14,
+    "Doctorate / PhD": 16,
+    "5th-6th Grade": 3,
+    "Associate Vocational Degree": 11,
+    "9th Grade": 5,
+    "12th Grade": 8,
+    "1st-4th Grade": 2,
+    "Preschool": 1
 }
 
 region_options = ['United-States', 'Peru', 'Guatemala', 'Mexico',
@@ -39,7 +39,7 @@ region_options = ['United-States', 'Peru', 'Guatemala', 'Mexico',
 
 age = st.number_input("Age", min_value=0, max_value=100, value=30)
 workclass = st.selectbox("Workclass", ["Private", 'Government', 'Other'])
-education = st.selectbox("Education", list(education_options.values()))
+education = st.selectbox("Education", list(education_map.keys()))
 marital_status = st.selectbox("Marital Status", ['Single', 'Married', 'Previously-Married'])
 occupation = st.selectbox("Occupation", ["Low-Skill", "Mid-Skill", "High-Skill"])
 relationship = st.selectbox("Relationship", ['Own-child', 'Husband', 'Not-in-family', 'Unmarried', 'Wife', 'Other-relative'])
@@ -47,25 +47,6 @@ gender = st.selectbox("Gender", ['Male', 'Female'])
 hours_per_week = st.number_input("Hours per week", min_value=0, max_value=168, value=40)
 native_country = st.selectbox("Native Country", region_options)
 capital_total = st.number_input("Capital Total", min_value=0, value=0)
-
-education_map = {
-    'Preschool': 1,
-    '1st-4th': 2,
-    '5th-6th': 3,
-    '7th-8th': 4,
-    '9th': 5,
-    '10th': 6,
-    '11th': 7,
-    '12th': 8,
-    'HS-grad': 9,
-    'Some-college': 10,
-    'Assoc-voc': 11,
-    'Assoc-acdm': 12,
-    'Bachelors': 13,
-    'Masters': 14,
-    'Prof-school': 15,
-    'Doctorate': 16
-}
 
 education_num = education_map[education]
 
