@@ -3,7 +3,7 @@ import requests
 
 BASE_URL = "https://saqib21-fastapi-backend.hf.space"
 
-st.set_page_config(page_title="Income Level Prediction", page_icon=r"C:\Users\Saqib\Documents\ML Assignement\Machine Learning Project\frontend\income.png")
+st.set_page_config(page_title="Income Level Prediction", page_icon="📊")
 st.title("Machine Learning Model for Income Level Prediction")
 st.write("Enter the following details to predict the income level:")
 
