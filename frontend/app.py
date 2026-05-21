@@ -26,6 +26,35 @@ education_map = {
     "Preschool": 1
 }
 
+workclass_options = {
+    "Private Company Employee": "Private",
+    "Local Government Employee": "Local-gov",
+    "Self-Employed (No Incorporated Business)": "Self-emp-not-inc",
+    "Federal Government Employee": "Federal-gov",
+    "State Government Employee": "State-gov",
+    "Self-Employed (Incorporated Business)": "Self-emp-inc",
+    "Without Pay": "Without-pay",
+    "Never Worked": "Never-worked"
+}
+
+occupation_options = {
+    "Machine Operator & Inspector": "Machine-op-inspct",
+    "Farming & Fishing": "Farming-fishing",
+    "Protective Services": "Protective-serv",
+    "Unknown / Not Specified": "?",
+    "Other Services": "Other-service",
+    "Professional Specialty": "Prof-specialty",
+    "Craft & Repair": "Craft-repair",
+    "Administrative & Clerical": "Adm-clerical",
+    "Executive & Managerial": "Exec-managerial",
+    "Technical Support": "Tech-support",
+    "Sales": "Sales",
+    "Private House Service": "Priv-house-serv",
+    "Transport & Moving": "Transport-moving",
+    "Handlers & Cleaners": "Handlers-cleaners",
+    "Armed Forces": "Armed-Forces"
+}
+
 region_options = ['United-States', 'Peru', 'Guatemala', 'Mexico',
        'Dominican-Republic', 'Ireland', 'Germany', 'Philippines',
        'Thailand', 'Haiti', 'El-Salvador', 'Puerto-Rico', 'Vietnam',
@@ -38,10 +67,10 @@ region_options = ['United-States', 'Peru', 'Guatemala', 'Mexico',
 ]
 
 age = st.number_input("Age", min_value=0, max_value=100, value=30)
-workclass = st.selectbox("Workclass", ["Private", 'Government', 'Other'])
+workclass = st.selectbox("Workclass", list(workclass_options.keys()))
 education = st.selectbox("Education", list(education_map.keys()))
 marital_status = st.selectbox("Marital Status", ['Single', 'Married', 'Previously-Married'])
-occupation = st.selectbox("Occupation", ["Low-Skill", "Mid-Skill", "High-Skill"])
+occupation = st.selectbox("Occupation", list(occupation_options.keys()))
 relationship = st.selectbox("Relationship", ['Own-child', 'Husband', 'Not-in-family', 'Unmarried', 'Wife', 'Other-relative'])
 gender = st.selectbox("Gender", ['Male', 'Female'])
 hours_per_week = st.number_input("Hours per week", min_value=0, max_value=168, value=40)
@@ -49,15 +78,17 @@ native_country = st.selectbox("Native Country", region_options)
 capital_total = st.number_input("Capital Total", min_value=0, value=0)
 
 education_num = education_map[education]
+occupation_map = occupation_options[occupation]
+workclass_map = workclass_options[workclass]
 
 if st.button("Predict"):
 
     data = {
         "age": age,
-        "workclass": workclass,
+        "workclass": workclass_map,
         "educational_num": education_num,
         "marital_status": marital_status,
-        "occupation": occupation,
+        "occupation": occupation_map,
         "relationship": relationship,
         "gender": gender,
         "hours_per_week": hours_per_week,

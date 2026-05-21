@@ -22,15 +22,15 @@ The following machine learning models were trained and evaluated:
 
 | Model | Accuracy |
 |---|---|
-| Logistic Regression | 79% |
-| Decision Tree Classifier | 80% |
-| Support Vector Classifier (SVC) | 78% |
-| K-Nearest Neighbors (K-NN) | 78% |
+| Logistic Regression | 79.44% |
+| Decision Tree Classifier | 81.03% |
+| Support Vector Classifier (SVC) | 80.1 |
+| K-Nearest Neighbors (K-NN) | 78.07% |
 
 ---
 
 ## Best Performing Model
-The best-performing model based on accuracy is the Decision Tree Classifier with an accuracy of 80%. Therefore, this model was selected and saved for income prediction.
+The best-performing model based on accuracy is the Decision Tree Classifier with an accuracy of 81.03%. Therefore, this model was selected and saved for income prediction.
 
 ---
 
