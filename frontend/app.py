@@ -7,17 +7,26 @@ st.set_page_config(page_title="Income Level Prediction", page_icon="💰")
 st.title("Machine Learning Model for Income Level Prediction")
 st.write("Enter the following details to predict the income level:")
 
-age = st.number_input("Age", min_value=0, max_value=100, value=30)
-workclass = st.selectbox("Workclass", ["Private", 'Government', 'Other'])
-education = st.selectbox("Education", ['11th', 'HS-grad', 'Assoc-acdm', 'Some-college', '10th',
-       'Prof-school', '7th-8th', 'Bachelors', 'Masters', 'Doctorate',
-       '5th-6th', 'Assoc-voc', '9th', '12th', '1st-4th', 'Preschool'])
-marital_status = st.selectbox("Marital Status", ['Single', 'Married', 'Previously-Married'])
-occupation = st.selectbox("Occupation", ["Low-Skill", "Mid-Skill", "High-Skill"])
-relationship = st.selectbox("Relationship", ['Own-child', 'Husband', 'Not-in-family', 'Unmarried', 'Wife', 'Other-relative'])
-gender = st.selectbox("Gender", ['Male', 'Female'])
-hours_per_week = st.number_input("Hours per week", min_value=0, max_value=168, value=40)
-native_country = st.selectbox("Native Country", ['United-States', 'Peru', 'Guatemala', 'Mexico',
+education_options = {
+    "11th Grade": "11th",
+    "High School Graduate": "HS-grad",
+    "Associate Academic Degree": "Assoc-acdm",
+    "Some College (No Degree)": "Some-college",
+    "10th Grade": "10th",
+    "Professional School": "Prof-school",
+    "7th-8th Grade": "7th-8th",
+    "Bachelor's Degree": "Bachelors",
+    "Master's Degree": "Masters",
+    "Doctorate / PhD": "Doctorate",
+    "5th-6th Grade": "5th-6th",
+    "Associate Vocational Degree": "Assoc-voc",
+    "9th Grade": "9th",
+    "12th Grade": "12th",
+    "1st-4th Grade": "1st-4th",
+    "Preschool": "Preschool"
+}
+
+region_options = ['United-States', 'Peru', 'Guatemala', 'Mexico',
        'Dominican-Republic', 'Ireland', 'Germany', 'Philippines',
        'Thailand', 'Haiti', 'El-Salvador', 'Puerto-Rico', 'Vietnam',
        'South', 'Columbia', 'Japan', 'India', 'Cambodia', 'Poland',
@@ -25,7 +34,18 @@ native_country = st.selectbox("Native Country", ['United-States', 'Peru', 'Guate
        'China', 'Nicaragua', 'Honduras', 'Iran', 'Scotland', 'Jamaica',
        'Ecuador', 'Yugoslavia', 'Hungary', 'Hong', 'Greece',
        'Trinadad&Tobago', 'Outlying-US(Guam-USVI-etc)', 'France',
-       'Holand-Netherlands'])
+       'Holand-Netherlands'
+]
+
+age = st.number_input("Age", min_value=0, max_value=100, value=30)
+workclass = st.selectbox("Workclass", ["Private", 'Government', 'Other'])
+education = st.selectbox("Education", list(education_options.values()))
+marital_status = st.selectbox("Marital Status", ['Single', 'Married', 'Previously-Married'])
+occupation = st.selectbox("Occupation", ["Low-Skill", "Mid-Skill", "High-Skill"])
+relationship = st.selectbox("Relationship", ['Own-child', 'Husband', 'Not-in-family', 'Unmarried', 'Wife', 'Other-relative'])
+gender = st.selectbox("Gender", ['Male', 'Female'])
+hours_per_week = st.number_input("Hours per week", min_value=0, max_value=168, value=40)
+native_country = st.selectbox("Native Country", region_options)
 capital_total = st.number_input("Capital Total", min_value=0, value=0)
 
 education_map = {

@@ -33,7 +33,8 @@ def predict(age: int, workclass: str, educational_num: int, marital_status: str,
     prediction = model.predict(data)
 
     if prediction[0] == 1:
-        result = "Predicted income is greater than 50K"
+        result = "Based on the provided information, the predicted annual income is greater than $50,000."
     else:
-        result = "Predicted income is less than or equal to 50K"
+        result = "Based on the provided information, the predicted annual income is less than or equal to $50,000."
+
     return {"prediction": result}
