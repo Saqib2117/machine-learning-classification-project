@@ -41,7 +41,6 @@ occupation_options = {
     "Machine Operator & Inspector": "Machine-op-inspct",
     "Farming & Fishing": "Farming-fishing",
     "Protective Services": "Protective-serv",
-    "Unknown / Not Specified": "?",
     "Other Services": "Other-service",
     "Professional Specialty": "Prof-specialty",
     "Craft & Repair": "Craft-repair",
