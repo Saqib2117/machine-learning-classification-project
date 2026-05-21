@@ -24,7 +24,7 @@ The following machine learning models were trained and evaluated:
 |---|---|
 | Logistic Regression | 79.44% |
 | Decision Tree Classifier | 81.03% |
-| Support Vector Classifier (SVC) | 80.1 |
+| Support Vector Classifier (SVC) | 80.1% |
 | K-Nearest Neighbors (K-NN) | 78.07% |
 
 ---
